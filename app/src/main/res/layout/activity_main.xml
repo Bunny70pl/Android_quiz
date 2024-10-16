@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#79E471"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewTrescPytania"
+        android:text="Tu będzie treść pytania"
+        android:textSize="32sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:background="#00A800"
+        android:textColor="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#00A800"
+            android:text="Tak" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_margin="8dp"
+            android:backgroundTint="#00A800"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nie" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="200dp"
+        android:backgroundTint="#00A800"
+        android:layout_height="wrap_content"
+        android:text="Podpowiedz" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="200dp"
+        android:backgroundTint="#00A800"
+        android:layout_height="wrap_content"
+        android:text="Nastepne" />
+
+</LinearLayout>
