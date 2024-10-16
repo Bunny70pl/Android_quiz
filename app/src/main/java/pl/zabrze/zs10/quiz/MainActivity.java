@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private Button nastepny;
     private Button tak;
     private Button nie;
+    private ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         nastepny = findViewById(R.id.button4);
         tak = findViewById(R.id.button);
         nie = findViewById(R.id.button2);
+        imageView = findViewById(R.id.imageView);
         nastepny.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -81,22 +84,26 @@ public class MainActivity extends AppCompatActivity {
     private void wstawPytanie(int i){
         Pytanie pytanie = listaPytan.get(i);
         textView.setText(pytanie.getTresc());
+        imageView.setImageResource(pytanie.getIdobrazka());
     }
     private void wypelnijPytania(){
         listaPytan.add(new Pytanie(
                 "Czy sekwoja moze miec 100 metrow wyokosci",
                 "Sejwoje sa bardzo wysokie",
-                true
+                true,
+                R.drawable.sekwoja
                 ));
         listaPytan.add(new Pytanie(
                 "Czy najgrubsze drzewo ma obwod 10m",
                 "obwod najgrubszego pnia na swiecei ma 44m",
-                false
+                false,
+                R.drawable.tlen
                 ));
         listaPytan.add(new Pytanie(
                 "Czy drzewa sa pochlaniaczem tlenu",
                 "Zastanow sie na czym polega fotostynteza",
-                false
+                false,
+                R.drawable.trawa
                 ));
     }
 }

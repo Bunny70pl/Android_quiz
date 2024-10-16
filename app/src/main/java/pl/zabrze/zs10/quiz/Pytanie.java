@@ -5,6 +5,7 @@ public class Pytanie {
     private String podpowiedz;
     private boolean poprawna;
     private boolean udzielnoPoprawnaOdpowiedz;
+    private int idobrazka;
 
     public Pytanie(String tresc, String podpowiedz, boolean poprawna) {
         this.tresc = tresc;
@@ -13,8 +14,20 @@ public class Pytanie {
         udzielnoPoprawnaOdpowiedz = false;
     }
 
+    public Pytanie(String tresc, String podpowiedz, boolean poprawna, int idobrazka) {
+        this.tresc = tresc;
+        this.podpowiedz = podpowiedz;
+        this.poprawna = poprawna;
+        udzielnoPoprawnaOdpowiedz = false;
+        this.idobrazka = idobrazka;
+    }
+
     public void setUdzielnoPoprawnaOdpowiedz(boolean udzielnoPoprawnaOdpowiedz) {
         this.udzielnoPoprawnaOdpowiedz = udzielnoPoprawnaOdpowiedz;
+    }
+
+    public int getIdobrazka() {
+        return idobrazka;
     }
 
     public String getTresc() {
