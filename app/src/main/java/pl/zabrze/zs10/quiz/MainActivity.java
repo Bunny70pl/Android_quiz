@@ -2,6 +2,7 @@ package pl.zabrze.zs10.quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,19 +21,21 @@ public class MainActivity extends AppCompatActivity {
     private Button nastepny;
     private Button tak;
     private Button nie;
-    private ImageView imageView;
+    private Button podpowiedz;
+    private ImageView zdjecie;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         wypelnijPytania();
-        textView = findViewById(R.id.textViewTrescPytania);
         nrPytania = 0;
+        zdjecie = findViewById(R.id.imageView);
+        textView = findViewById(R.id.textViewTrescPytania);
         wstawPytanie(nrPytania);
         nastepny = findViewById(R.id.button4);
         tak = findViewById(R.id.button);
         nie = findViewById(R.id.button2);
-        imageView = findViewById(R.id.imageView);
+        podpowiedz = findViewById(R.id.button3);
         nastepny.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -65,6 +68,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        podpowiedz.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(MainActivity.this,PodpowiedzActivity.class);
+                        intent.putExtra("PODPOWIEDZ",listaPytan.get(nrPytania).getPodpowiedz());
+                        startActivity(intent);
+                        //Toast.makeText(MainActivity.this, "Bedzie wyswietlana podpowiedz", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
     }
     private int policzPuntky(){
         int ilePunktow = 0;
@@ -84,26 +98,26 @@ public class MainActivity extends AppCompatActivity {
     private void wstawPytanie(int i){
         Pytanie pytanie = listaPytan.get(i);
         textView.setText(pytanie.getTresc());
-        imageView.setImageResource(pytanie.getIdobrazka());
+        zdjecie.setImageResource(pytanie.getIdobrazka());
     }
     private void wypelnijPytania(){
         listaPytan.add(new Pytanie(
                 "Czy sekwoja moze miec 100 metrow wyokosci",
                 "Sejwoje sa bardzo wysokie",
                 true,
-                R.drawable.sekwoja
+                R.drawable.abcd
                 ));
         listaPytan.add(new Pytanie(
                 "Czy najgrubsze drzewo ma obwod 10m",
                 "obwod najgrubszego pnia na swiecei ma 44m",
                 false,
-                R.drawable.tlen
+                R.drawable.abca
                 ));
         listaPytan.add(new Pytanie(
                 "Czy drzewa sa pochlaniaczem tlenu",
                 "Zastanow sie na czym polega fotostynteza",
                 false,
-                R.drawable.trawa
+                R.drawable.abc
                 ));
     }
 }
